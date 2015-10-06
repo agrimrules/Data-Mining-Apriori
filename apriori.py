@@ -1,8 +1,6 @@
-import sys
 import os
 from itertools import chain, combinations
 from collections import defaultdict
-from optparse import OptionParser
 
 
 def Subset(arr):
@@ -92,10 +90,10 @@ def runApriori(data_iter, minSupport, minConfidence):
 def printResults(items, rules): 
     for item, support in sorted(items, key=lambda (item, support): support):
         print "item: %s , %.3f" % (str(item), support)
-        print "\n------------------------ RULES:"
+        print "\n-----------Rules-------------:"
     for rule, confidence in sorted(rules, key=lambda (rule, confidence): confidence):
         pre, post = rule
-        print "Rule: %s === %s , %.3f" % (str(pre), str(post), confidence)
+        print "Rule: %s --- %s , %.3f" % (str(pre), str(post), confidence)
 
 
 def dataFromFile(fname):
@@ -123,16 +121,5 @@ def userinput():
     print('You have not selected any more files \n \t')
 
 if __name__ == "__main__":
-    # inputfile = raw_input('Enter the name of the file you wish to read \n')
-    # assert os.path.exists(inputfile), "There is no file in the current directory called"+str(inputfile)
-    # minSupport = float(input ('Enter the value for minimum support\n'))
-    # minConfidence = float(input ('Enter the value for minumum Confidence\n'))
-    #
-    # inFile = dataFromFile(inputfile)
-    # items, rules = runApriori(inFile, minSupport, minConfidence)
-    # printResults(items, rules)
-    # print('Input file name \t'+inputfile)
-    # print('Minimum support value \t'+str(minSupport))
-    # print('Minimum Confidence value \t'+str(minConfidence))
     userinput()
 
