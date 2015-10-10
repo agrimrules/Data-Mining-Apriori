@@ -7,14 +7,14 @@ def Subset(arr):
     return chain(*[combinations(arr, i + 1) for i, a in enumerate(arr)])
 
 
-def getitemwithleastsupport(itemset, transactionslist, Support, freqSet):
+def getitemwithleastsupport(itemset, transactionslist, Support, frequentset):
         _itemset = set()
         localSet = defaultdict(int)
 
         for item in itemset:
                 for transaction in transactionslist:
                         if item.issubset(transaction):
-                                freqSet[item] += 1
+                                frequentset[item] += 1
                                 localSet[item] += 1
 
         for item, count in localSet.items():
